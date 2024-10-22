@@ -1,0 +1,6 @@
+@DotnetEfCoreUnitOfWork_HostAddress = http://localhost:5108
+
+GET {{DotnetEfCoreUnitOfWork_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
