@@ -14,7 +14,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         _dbSet = _context.Set<TEntity>();
     }
 
-    public async Task<TEntity?> GetByIdAsync(int id)
+    public async Task<TEntity?> GetByIdAsync(object id)
     {
         return await _dbSet.FindAsync(id);
     }
@@ -39,7 +39,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         _dbSet.Remove(entity);
     }
 
-    public async Task<bool> ExistsAsync(int id)
+    public async Task<bool> ExistsAsync(object id)
     {
         return await _dbSet.FindAsync(id) != null;
     }
