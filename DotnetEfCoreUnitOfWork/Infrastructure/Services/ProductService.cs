@@ -17,6 +17,12 @@ public class ProductService
         return await _unitOfWork.Repository<Product>().GetAllAsync();
     }
 
+    public async Task<Product?> GetProductByIdAsync(Guid productId)
+    {
+        return await _unitOfWork.Repository<Product>()
+            .GetByIdAsync(productId);
+    }
+
     public async Task AddProductAsync(Product product)
     {
         await _unitOfWork.Repository<Product>().AddAsync(product);
@@ -29,7 +35,7 @@ public class ProductService
         await _unitOfWork.CompleteAsync();
     }
 
-    public async Task DeleteProductAsync(int productId)
+    public async Task DeleteProductAsync(Guid productId)
     {
         var product = await _unitOfWork
             .Repository<Product>()
